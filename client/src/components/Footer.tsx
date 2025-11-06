@@ -10,10 +10,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <h3 className="font-display font-bold text-xl mb-4" data-testid="text-footer-brand">
-              Roblox Developer
+              Game Developer
             </h3>
             <p className="text-muted-foreground text-sm">
-              Professional game development services for the Roblox platform. Creating immersive experiences that players love.
+              Professional game development services for Roblox, Godot, and Game Maker. Creating immersive experiences across multiple platforms.
             </p>
           </div>
 
@@ -85,7 +85,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t text-center">
           <p className="text-sm text-muted-foreground" data-testid="text-copyright">
-            © {currentYear} Roblox Developer Portfolio. Built with passion for game development.
+            © {currentYear} Game Developer Portfolio. Built with passion for cross-platform game development.
           </p>
         </div>
       </div>

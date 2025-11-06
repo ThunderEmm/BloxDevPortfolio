@@ -9,6 +9,10 @@ import scifiImg from "@assets/generated_images/Sci-fi_build_portfolio_project_ce
 import racingImg from "@assets/generated_images/Racing_game_portfolio_project_8347e7d4.png";
 import rpgImg from "@assets/generated_images/RPG_game_portfolio_project_6e39d4ef.png";
 import simulatorImg from "@assets/generated_images/Simulator_game_portfolio_project_802bbeda.png";
+import godotPlatformerImg from "@assets/generated_images/Godot_platformer_project_c4d80ecf.png";
+import godotFpsImg from "@assets/generated_images/Godot_FPS_project_3da8cf69.png";
+import gmDungeonImg from "@assets/generated_images/Game_Maker_dungeon_crawler_28fa31ad.png";
+import gmPuzzleImg from "@assets/generated_images/Game_Maker_puzzle_game_802cbeba.png";
 
 const projects = [
   {
@@ -16,56 +20,89 @@ const projects = [
     title: "Tropical Adventure",
     description: "An immersive island exploration game with custom terrain, interactive NPCs, and quest system",
     image: adventureImg,
-    tags: ["Building", "Scripting", "Game Design"],
-    category: "building"
+    tags: ["Roblox", "Lua", "Building"],
+    category: "roblox",
+    engine: "Roblox"
   },
   {
     id: 2,
     title: "Advanced UI System",
     description: "Modern game interface with inventory, health systems, and responsive design",
     image: uiImg,
-    tags: ["UI/UX", "Scripting"],
-    category: "ui"
+    tags: ["Roblox", "Lua", "UI/UX"],
+    category: "roblox",
+    engine: "Roblox"
   },
   {
     id: 3,
     title: "Sci-Fi Space Station",
     description: "Futuristic environment with working doors, lighting systems, and atmospheric effects",
     image: scifiImg,
-    tags: ["Building", "Scripting"],
-    category: "building"
+    tags: ["Roblox", "Lua", "Building"],
+    category: "roblox",
+    engine: "Roblox"
   },
   {
     id: 4,
-    title: "Racing Championship",
-    description: "High-speed racing game with custom vehicle physics and multiplayer support",
-    image: racingImg,
-    tags: ["Scripting", "Game Mechanics"],
-    category: "scripting"
+    title: "Pixel Platformer",
+    description: "Retro-style 2D platformer with tight controls, collectibles, and challenging level design",
+    image: godotPlatformerImg,
+    tags: ["Godot", "GDScript", "2D"],
+    category: "godot",
+    engine: "Godot"
   },
   {
     id: 5,
-    title: "Medieval RPG Kingdom",
-    description: "Fantasy RPG with combat system, skill trees, and procedural loot generation",
-    image: rpgImg,
-    tags: ["Building", "Scripting", "Game Design"],
-    category: "scripting"
+    title: "Sci-Fi FPS",
+    description: "First-person shooter with advanced AI, weapon systems, and multiplayer capabilities",
+    image: godotFpsImg,
+    tags: ["Godot", "GDScript", "3D"],
+    category: "godot",
+    engine: "Godot"
   },
   {
     id: 6,
-    title: "Click Simulator",
-    description: "Engaging incremental game with progression system and reward mechanics",
-    image: simulatorImg,
-    tags: ["Scripting", "UI/UX", "Game Design"],
-    category: "scripting"
+    title: "Dungeon Crawler",
+    description: "Top-down roguelike with procedural generation, loot systems, and permadeath mechanics",
+    image: gmDungeonImg,
+    tags: ["Game Maker", "GML", "2D"],
+    category: "gamemaker",
+    engine: "Game Maker"
+  },
+  {
+    id: 7,
+    title: "Puzzle Master",
+    description: "Minimalist puzzle game with 100+ levels, smooth animations, and satisfying mechanics",
+    image: gmPuzzleImg,
+    tags: ["Game Maker", "GML", "Mobile"],
+    category: "gamemaker",
+    engine: "Game Maker"
+  },
+  {
+    id: 8,
+    title: "Racing Championship",
+    description: "High-speed racing game with custom vehicle physics and multiplayer support",
+    image: racingImg,
+    tags: ["Roblox", "Lua", "Physics"],
+    category: "roblox",
+    engine: "Roblox"
+  },
+  {
+    id: 9,
+    title: "Medieval RPG Kingdom",
+    description: "Fantasy RPG with combat system, skill trees, and procedural loot generation",
+    image: rpgImg,
+    tags: ["Roblox", "Lua", "RPG"],
+    category: "roblox",
+    engine: "Roblox"
   }
 ];
 
 const categories = [
   { id: "all", label: "All Projects" },
-  { id: "building", label: "Building" },
-  { id: "scripting", label: "Scripting" },
-  { id: "ui", label: "UI/UX" }
+  { id: "roblox", label: "Roblox" },
+  { id: "godot", label: "Godot" },
+  { id: "gamemaker", label: "Game Maker" }
 ];
 
 export default function Portfolio() {

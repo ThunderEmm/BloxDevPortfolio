@@ -84,10 +84,11 @@ export default function Contact() {
                         <SelectValue placeholder="Select project type" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="scripting">Scripting & Programming</SelectItem>
-                        <SelectItem value="building">3D Building & Design</SelectItem>
-                        <SelectItem value="ui">UI/UX Development</SelectItem>
+                        <SelectItem value="roblox">Roblox Development</SelectItem>
+                        <SelectItem value="godot">Godot Development</SelectItem>
+                        <SelectItem value="gamemaker">Game Maker Development</SelectItem>
                         <SelectItem value="full-game">Full Game Development</SelectItem>
+                        <SelectItem value="porting">Cross-Platform Porting</SelectItem>
                         <SelectItem value="consulting">Consulting</SelectItem>
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>

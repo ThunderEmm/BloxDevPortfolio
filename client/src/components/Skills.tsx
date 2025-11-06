@@ -4,14 +4,20 @@ import { Code2, Boxes, Palette, Zap, Database, Cpu } from "lucide-react";
 const skills = [
   {
     icon: Code2,
-    name: "Lua Scripting",
-    description: "Expert in Lua programming with advanced scripting techniques",
+    name: "Lua & GDScript",
+    description: "Expert in Lua (Roblox) and GDScript (Godot) programming",
     level: 95
   },
   {
+    icon: Code2,
+    name: "GML & C#",
+    description: "Proficient in Game Maker Language and C# for cross-platform games",
+    level: 88
+  },
+  {
     icon: Boxes,
-    name: "3D Building",
-    description: "Creating detailed and optimized game environments",
+    name: "3D & 2D Design",
+    description: "Creating detailed game environments across 2D and 3D engines",
     level: 90
   },
   {
@@ -28,15 +34,21 @@ const skills = [
   },
   {
     icon: Database,
-    name: "DataStore",
-    description: "Efficient data persistence and player progression systems",
+    name: "Data Systems",
+    description: "Efficient data persistence and player progression across platforms",
     level: 88
   },
   {
     icon: Cpu,
     name: "Optimization",
-    description: "Performance optimization for smooth gameplay",
+    description: "Performance optimization for smooth gameplay on all platforms",
     level: 87
+  },
+  {
+    icon: Zap,
+    name: "Cross-Platform",
+    description: "Building games for PC, mobile, and web platforms",
+    level: 85
   }
 ];
 

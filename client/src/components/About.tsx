@@ -7,22 +7,22 @@ const milestones = [
   {
     year: "2019",
     title: "Started Development",
-    description: "Began creating Roblox games as a hobby"
+    description: "Began creating games across multiple engines"
   },
   {
     year: "2020",
-    title: "First Commission",
-    description: "Completed first paid project for a game studio"
+    title: "Multi-Engine Expertise",
+    description: "Expanded to Godot and Game Maker development"
   },
   {
     year: "2022",
     title: "100K Players",
-    description: "Games reached over 100,000 total players"
+    description: "Games reached over 100,000 total players across platforms"
   },
   {
     year: "2024",
     title: "Professional Studio",
-    description: "Established full-time development practice"
+    description: "Established full-time cross-platform development practice"
   }
 ];
 
@@ -49,14 +49,14 @@ export default function About() {
 
           <div className="space-y-6">
             <p className="text-lg leading-relaxed" data-testid="text-about-bio">
-              I'm a passionate Roblox developer with over 5 years of experience creating engaging games and systems. 
-              What started as a hobby has evolved into a professional career helping studios and creators bring their 
-              visions to life.
+              I'm a passionate game developer with over 5 years of experience creating engaging games across Roblox, 
+              Godot Engine, and Game Maker Studio. What started as a hobby has evolved into a professional career 
+              helping studios and creators bring their visions to life on multiple platforms.
             </p>
             <p className="text-lg leading-relaxed">
-              I specialize in creating polished, performant experiences that players love. Whether it's complex 
-              gameplay mechanics, stunning builds, or intuitive UI systems, I bring technical expertise and creative 
-              problem-solving to every project.
+              I specialize in creating polished, performant experiences that players love, regardless of the platform. 
+              Whether it's multiplayer Roblox experiences, 2D/3D Godot games, or mobile-ready Game Maker titles, I bring 
+              technical expertise and creative problem-solving to every project.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
