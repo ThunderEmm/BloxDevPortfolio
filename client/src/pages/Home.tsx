@@ -133,7 +133,7 @@ export default function Home() {
             <Link href="/systems?engine=gamemaker">
               <Card className="hover-elevate active-elevate-2 transition-all duration-300">
                 <CardContent className="p-6 text-center">
-                  <img src={gameMakerIcon} alt="GameMaker Studio" className="h-12 w-12 mx-auto mb-4" />
+                  <img src={gameMakerIcon} alt="GameMaker Studio" className="h-12 w-12 mx-auto mb-4" style={{ mixBlendMode: 'multiply' }} />
                   <h3 className="font-semibold mb-2">Built for GameMaker</h3>
                   <p className="text-sm text-muted-foreground">GML-ready.</p>
                 </CardContent>
