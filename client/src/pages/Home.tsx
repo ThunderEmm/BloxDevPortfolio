@@ -8,7 +8,7 @@ import { SiGodotengine, SiGamejolt } from "react-icons/si";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
-import robloxStudioIcon from "@assets/rblxstdicon_1762630041424.png";
+import robloxStudioIcon from "@assets/generated_images/Roblox_Studio_icon_transparent_2374af15.png";
 import gameMakerIcon from "@assets/image_1762630380814.png";
 import inventoryImg from "@assets/generated_images/Roblox_inventory_system_34268ad7.png";
 import questImg from "@assets/generated_images/Godot_quest_system_474d9190.png";
@@ -115,7 +115,7 @@ export default function Home() {
             <Link href="/systems?engine=roblox">
               <Card className="hover-elevate active-elevate-2 transition-all duration-300">
                 <CardContent className="p-6 text-center">
-                  <img src={robloxStudioIcon} alt="Roblox Studio" className="h-12 w-12 mx-auto mb-4 rounded-md" />
+                  <img src={robloxStudioIcon} alt="Roblox Studio" className="h-12 w-12 mx-auto mb-4" />
                   <h3 className="font-semibold mb-2">Built for Roblox</h3>
                   <p className="text-sm text-muted-foreground">Luau-ready.</p>
                 </CardContent>
