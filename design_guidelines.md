@@ -1,92 +1,102 @@
-# Roblox Development Portfolio - Design Guidelines
+# Emmet Builds Systems - Design Guidelines
 
-## Design Approach
-**Reference-Based:** Drawing inspiration from modern gaming portfolios (ArtStation, Behance) combined with Roblox's playful, block-based aesthetic. Professional gaming studio presentation with creative energy and personality.
+## Brand Identity
+**Name:** Emmet Builds Systems  
+**Tagline:** "Modular systems for indie devs — plug-in code so you can finish your game."  
+**Voice:** Friendly, technically confident, developer-centric. Not corporate. Clear, concise, slightly playful. Use second-person ("you") and short sentences.
 
-## Typography System
-- **Display/Hero:** Bold, geometric sans-serif with strong presence (Poppins Bold, 700-800 weight)
-- **Headings:** Same family, 600 weight for hierarchy
-- **Body Text:** Clean, readable sans-serif (Inter or similar, 400-500 weight)
-- **Sizes:** Hero (text-5xl to text-7xl), Section Headers (text-3xl to text-4xl), Body (text-lg), Captions (text-sm)
+## Color System
+- **Primary (Electric Blue):** #3B82F6 - Main CTAs, links, accents
+- **Secondary (Violet):** #7C3AED - Secondary accents, highlights
+- **Accent (Soft Orange):** #FB923C - Primary CTA buttons, important highlights
+- **Base Dark:** #1E293B - Dark backgrounds, text on light
+- **Slate:** #475569 - Secondary text, borders
 
-## Layout & Spacing System
-**Tailwind Units:** Primary spacing units of 4, 8, 12, 16, and 24 for consistency
-- Section padding: py-20 (desktop), py-12 (mobile)
-- Card/component gaps: gap-8 (desktop), gap-6 (mobile)
-- Container max-width: max-w-7xl with px-6 padding
+### Light Mode
+- Background: #FFFFFF (white)
+- Foreground: #0F172A (slate-900)
+- Card: #F8FAFC (slate-50)
+- Muted: #64748B (slate-500)
 
-## Page Structure & Components
+### Dark Mode
+- Background: #0F172A (slate-900)
+- Foreground: #F8FAFC (slate-50)
+- Card: #1E293B (slate-800)
+- Muted: #94A3B8 (slate-400)
 
-### Hero Section (Full viewport, 90vh)
-- **Large Hero Image:** Dynamic Roblox game screenshot or studio workspace as background with subtle overlay
-- Eye-catching headline with your development specialty
-- Brief tagline (one sentence value proposition)
-- Primary CTA button with blur background effect
-- Stat counters: Projects completed, Years experience, Games published (animated on load)
+## Typography
+- **Display/Headlines:** Poppins (bold, 700-800 weight) - For hero and major headings
+- **Body Text:** Inter (400-500 weight) - Clean, readable for all body content
+- **Code/Technical:** JetBrains Mono - For code snippets and technical content
+- **Sizes:** Hero (text-5xl to text-6xl), Section Headers (text-3xl to text-4xl), Body (text-base to text-lg)
 
-### Portfolio Gallery (Featured Projects)
-- **Masonry grid layout:** 2 columns (tablet), 3 columns (desktop)
-- Each project card includes: Large game screenshot thumbnail, project title, brief description, technology tags (Lua, UI, Building, etc.), "View Details" link
-- Hover effect: Subtle lift and shadow enhancement
-- Filter buttons above grid: All, Scripting, Building, UI/UX, Game Design
+## Layout Principles
+- **Spacing:** Generous spacing with Tailwind units: 4, 6, 8, 12, 16, 20, 24
+- **Containers:** max-w-7xl for main content, px-6 for horizontal padding
+- **Grid:** Responsive grids - 1 column mobile, 2-3 columns tablet, 3-4 columns desktop
+- **Cards:** Rounded (rounded-xl), subtle shadows, hover states with slight elevation
 
-### Skills Showcase
-- **Icon-based grid:** 4 columns (desktop), 2 columns (mobile)
-- Large, custom Roblox-themed icons for each skill
-- Skill name and proficiency indicator (visual bar or level system)
-- Core skills: Lua Scripting, 3D Building, UI/UX Design, Game Mechanics, DataStore Management, API Integration
+## Component Patterns
 
-### About Section
-- **Two-column layout:** Left: Professional photo or avatar, Right: Biography and journey
-- Timeline component showing development milestones
-- Personality elements: Favorite tools, development philosophy, specializations
+### Buttons
+- **Primary CTA:** bg-accent (orange #FB923C) with white text, hover elevation
+- **Secondary:** bg-primary (blue #3B82F6) with white text
+- **Outline:** border with primary color, transparent background
+- **Sizes:** Default (px-6 py-3), Large (px-8 py-4), Icon (square)
 
-### Testimonials/Social Proof
-- **Horizontal card layout:** 3 columns showcasing client reviews or project highlights
-- Include client name, project type, and quote
-- Star ratings or project success metrics
+### Cards
+- Product cards: White/dark card background, border, rounded corners
+- Hover state: Slight elevation, subtle scale transform
+- Include: thumbnail, title, description, badges, price, CTA
 
-### Contact Section
-- **Split layout:** Left: Contact form (Name, Email, Project Type dropdown, Message), Right: Additional info (Response time, availability, social links)
-- Form with modern input styling and clear CTA
-- Quick contact methods: Discord tag, Email, Twitter/X
+### Navigation
+- Sticky header with logo left, nav center/right
+- Mobile: Hamburger menu
+- Desktop: Horizontal nav with hover states
 
-### Footer
-- Navigation links, Copyright info, Social media icons
-- "Built with Roblox Studio" badge
-- Quick links to top projects
+### Forms
+- Clean inputs with subtle borders
+- Focus states: primary color ring
+- Labels above inputs
+- Validation states (error/success)
 
-## Component Design Patterns
+## Page-Specific Guidelines
 
-**Cards:** Rounded corners (rounded-xl), elevated shadows, hover animations
-**Buttons:** Solid primary actions with backdrop blur on hero, standard buttons elsewhere with hover state transitions
-**Inputs:** Clean borders, focused state with subtle glow, generous padding (px-4 py-3)
-**Tags/Badges:** Pill-shaped (rounded-full), compact (px-3 py-1), categorize skills/technologies
-**Images:** All project screenshots with aspect-ratio-video, rounded corners, lazy loading
+### Home Page
+- Hero: Full-width, gradient background, large headline, dual CTAs
+- Engine Icons: Row of 3 with hover states
+- Featured Systems: 3-card grid
+- Testimonials: 2-4 quote cards
+- Email opt-in: Simple form at bottom
 
-## Animations
-- **Hero stats:** Count-up animation on page load
-- **Scroll reveals:** Subtle fade-in-up for sections (stagger portfolio cards)
-- **Hover states:** Smooth scale and shadow transitions (0.3s ease)
-- Keep animations purposeful and non-distracting
+### Systems Marketplace
+- Filter tabs: Horizontal, pill-style buttons
+- Search: Prominent top-right
+- Grid: Responsive product cards
+- Pagination: Simple numbered or load more
 
-## Images
-**Hero Image:** Large, high-quality Roblox Studio workspace or flagship game screenshot spanning full viewport width. Should communicate professionalism and capability.
-
-**Portfolio Images:** 6-9 project screenshots showcasing diverse work (games, UI systems, builds). Each image should clearly demonstrate the project's visual quality.
-
-**About Section:** Professional headshot or Roblox avatar representation
-
-**Skills Icons:** Use Font Awesome or Heroicons via CDN for technical skill icons
+### Product Detail
+- Large demo video/GIF
+- Feature bullets with icons
+- Code snippet: Monospace, dark background, copy button
+- Buy button: Prominent, accent color
+- Related products: Horizontal scroll
 
 ## Accessibility
-- Maintain WCAG AA contrast standards
+- WCAG AA contrast standards
+- Semantic HTML (header, nav, main, section, footer)
+- Alt text for all images
 - Keyboard navigation for all interactive elements
-- Focus indicators on form inputs and buttons
-- Alt text for all portfolio images describing the project
+- Focus indicators on form inputs
 
-## Viewport Strategy
-- Hero: 90vh for impact
-- Content sections: Natural height based on content (py-20 rhythm)
-- Avoid forcing multiple sections into single viewport
-- Mobile-first responsive breakpoints: sm, md, lg, xl
+## Assets
+- Engine icons: Simple SVG icons for Roblox, Godot, GameMaker
+- Demo videos: MP4 format, compressed
+- Thumbnails: Compressed GIFs or WebP
+- Lazy loading for below-fold images
+
+## Responsive Breakpoints
+- Mobile: < 768px (sm)
+- Tablet: 768px - 1024px (md)
+- Desktop: > 1024px (lg)
+- Wide: > 1280px (xl)

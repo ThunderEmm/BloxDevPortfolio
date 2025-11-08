@@ -1,0 +1,144 @@
+Project: "Emmet Builds Systems" — Professional website (static + lightweight backend) for selling and showcasing modular game systems for Roblox, Godot, and GameMaker.
+
+Primary objective (short): Build a clean, developer-focused, responsive website that demonstrates credibility and converts indie developers into buyers/clients. The site must match the exact structure, copy tone, and UX described below. Do not improvise structural choices — if something is ambiguous, implement the *closest unambiguous option* described here.
+
+Primary users:  
+- Solo hobby devs (Roblox/Godot/GameMaker)  
+- Small indie teams  
+- Experienced creative coders looking for modular systems
+
+Branding & voice (must use throughout copy/UI):  
+- Name: **Emmet Builds Systems** (use as site title and logo text)  
+- Tagline (hero): **“Modular systems for indie devs — plug-in code so you can finish your game.”**  
+- Tone: Friendly, technically confident, developer-centric. Not corporate. Clear, concise, slightly playful. Use second-person (“you”) and short sentences.  
+- Visual vibe: Clean, modular, developer-studio. Slight tech feel: cool slate/dark gray base, electric blue #3B82F6 accent, violet #7C3AED secondary accent, soft orange #FB923C for CTAs. Use monospace for code snippets (JetBrains Mono or similar) and a modern geometric sans for UI (Inter or Poppins). Keep spacing generous.
+
+Technical stack (required):  
+- Static site built with plain HTML5 + CSS3 + vanilla JS OR a minimal static generator if you prefer (must be exported as static files). If a framework is used (React / Next / Svelte), **export a fully static build** and include instructions.  
+- Use Tailwind CSS or a utility CSS system if preferred — but final deliverable must include compiled CSS (no build dependency required to run on Replit).  
+- Responsive: mobile-first, desktop supported.  
+- Hosting & domain: deploy on Replit and provide instructions/README for connecting a custom domain and for steps to export the static site if needed.  
+- No external paid services required to run core site; integrate optional third-party services via configurable embed keys (Gumroad, Itch.io, ConvertKit) so owner can add keys later.
+
+Pages & structure (exact):
+
+1) HOME ("/") — Hero -> Engines -> Featured Systems -> Proof -> CTA -> Opt-in  
+   - Hero: big headline (tagline above), subtext: “I build clean, documented, engine-specific systems for Roblox, Godot and GameMaker — so you can focus on gameplay, not plumbing.”  
+   - Primary CTA buttons: **Browse Systems (links to /systems)** and **See Demo (links to Demo game / external Roblox link)**  
+   - Engines row: 3 engine icons (Roblox, Godot, GameMaker) with microcopy under each: “Built for Roblox. Luau-ready.” / “Built for Godot. GDScript-ready.” / “Built for GameMaker. GML-ready.” Links to filtered system views on /systems.  
+   - Featured Systems: carousel or 3-card grid with title, short 1-line description, engine tags, demo video link (hosted on-site or embedded), price, CTA “View System”.  
+   - Proof/testimonials: 2–4 short verified quotes (use placeholders initially).  
+   - Opt-in: small form (email capture) — placeholder to connect to ConvertKit or Mailchimp. Form must use a simple POST receiver endpoint (can be mock) and show “Thanks” overlay on success. Include text: “Join 200+ devs for early access & templates.”
+
+2) SYSTEMS / MARKETPLACE ("/systems") — full filterable shop page  
+   - Filter tabs horizontally: All | Roblox | Godot | GameMaker. Default: All.  
+   - Search box (title/keywords).  
+   - Grid layout of system cards: thumbnail GIF/preview, title, short features bullets (3), engine badges, price, tags like “modular / documented / production-ready”, CTA: “View”.  
+   - Product card must show a hover state with quick demo preview and two CTAs: “View” & “Buy” (Buy links to Gumroad or Itch.io external purchase, but provide sample Gumroad button integration that owner can replace).  
+   - Pagination or infinite scroll (choose any but make it smooth).  
+   - On top, small banner: “Need a custom integration? Contact me” linking to /contact.
+
+3) PRODUCT DETAIL ("/systems/{slug}") — per-system page template  
+   - Title, engine badge, price, short summary.  
+   - Demo video (looping short demo) + GIF preview. Video must be hosted within site files or embedded via a configurable external video URL.  
+   - Features list (short bullets).  
+   - “What’s included” section: source file (not published live), docs, quick-start guide PDF (download link). The demo must *not* include full source code for paid assets. Provide a “Preview code snippet” box with 6–12 lines of well-commented sample (non-sensitive) code only to show style. Use monospace, copy-to-clipboard button.  
+   - Compatibility & requirements: engine versions, prerequisites.  
+   - FAQ mini section (three questions).  
+   - CTA area with Buy button (Gumroad/Itch) + “Request custom integration” button (leads to contact form).  
+   - Related systems carousel.
+
+4) PORTFOLIO / CASE STUDIES ("/portfolio")  
+   - 3 initial case-study-style entries (these are self-started showcases) — each with: Project name, “Problem”, “Solution” (what system was made), “Result / How it helps” and short 15–30s demo clip. Keep language framed as product-case (not client).  
+   - Metrics placeholders: “Saved ~X dev hours” etc.
+
+5) DEMO ("/demo") — Systems Playground (important)  
+   - Prominent link to a hosted Roblox experience (if available) and embedded short gameplay demo. If Roblox can't embed, link must be prominent with instructions: “Open in Roblox →” and a one-line description.  
+   - Also include interactive web demos for Godot/GameMaker systems where feasible (e.g., simple JS-based mockups for UI interaction) — optional, but add a clear label “Interactive preview (demo-only)” and do not include full source.  
+   - Clear label: “This demo is a simplified public preview — for bespoke, polished integrations, hire me.”
+
+6) ABOUT ("/about")  
+   - Short first-person bio: “Hi, I’m Emmet — systems developer for Roblox, Godot, GameMaker. I build modular backbones so teams can ship faster.” Keep it short and confident. Include experience line: “Roblox scripting since YYYY, Godot since v3.x” (use placeholder years).  
+   - Values: Simplicity, modularity, clarity.  
+   - Photo or avatar placeholder and contact CTA.
+
+7) CONTACT ("/contact")  
+   - Short form: Name, Email, Engine (dropdown), Project type (Pre-made / Custom), Budget (dropdown), Message (textarea), Upload (optional).  
+   - After submit, show a confirmation page with next steps + expected response time message. (Make the response time text non-committal such as “You’ll hear back soon” — do not promise exact hours.)  
+   - Also include social links: GitHub, Itch.io, Roblox profile, Twitter/X (or blank if not set).
+
+8) REVIEWS / TESTIMONIALS ("/reviews") — simple gallery of fetched reviews (start with placeholders). Include CTA: “Leave a Review” with a lightweight form that appends to a reviews JSON file (for demo).
+
+Site-wide UI & behavior (explicit):  
+- Header: logo left, navigation (Home, Systems, Portfolio, Demo, About, Contact), small “Cart” icon (for future) and CTA button “Browse Systems” (primary). Sticky header on scroll.  
+- Footer: Copyright, quick links, engines icons, small newsletter capture, legal links (TOS, Privacy — create placeholders).  
+- Use modular card-based layout; spacing and grid consistent.  
+- Accessibility: semantic HTML, alt tags, color contrast accessible, keyboard-navigable forms.  
+- Performance: images compressed, thumbnails small, lazy-loading enabled for below-the-fold images.  
+- SEO: meta title & meta description for each page (use descriptive templates). Add structured data (LD+JSON) for product pages (basic fields: name, description, price, currency USD).  
+- Analytics: embed an analytics stub (owner can replace with GA or Plausible ID later). Provide instruction comment in code where to paste analytics ID.
+
+Integrations & embeds (must be implemented as configurable placeholders):  
+- Payments/downloads: Gumroad / Itch.io button placeholders. Implement one working example that links to a sandbox Gumroad product URL (owner will replace). Provide clear config file (site/config.json) with product metadata and external URLs.  
+- Email capture: provide a basic working email capture that stores submissions to a simple JSON file (serverless Replit endpoint) and also a commented example for ConvertKit/Mailchimp embed code.  
+- Demo/game embeds: allow an external Roblox link and an iframe/video preview. If Roblox embed is unavailable, place a large screenshot + “Open in Roblox” link.  
+- Contact form: implement backend route (on Replit) to receive form POSTs, store them locally in a safe format, and email-forwarding instructions (owner must supply SMTP or connect a service later). For now, store submissions and show confirmation on the portal.
+
+Developer & operational requirements (deliverables):  
+1. Full static site deployed to Replit with a public URL. If Replit provides a subdomain like `emmet-builds.repl.co`, push that; also include exact instructions in README for pointing a custom domain (DNS records and Replit steps).  
+2. Git repo in the Replit workspace with clear commit history.  
+3. `site/config.json` file where the owner can edit: brand colors, engine icons URLs, products metadata, and external links (Gumroad, Itch, Roblox). All content text references must be driven by config where possible.  
+4. `README.md` with: how to run locally, how to edit content, how to deploy, how to connect domain (step-by-step), how to replace placeholder embed keys (Gumroad, ConvertKit), how to export site.  
+5. A minimal admin script/page (protected by a simple password in config) to view contact submissions and testimonials (no user accounts required). This is optional but preferred.  
+6. Unit manual acceptance test steps in README for owner to confirm features work.
+
+Copy & microcopy guidance (exact voice examples to use where text is needed):  
+- Hero subheadline: “Modular systems for Roblox, Godot & GameMaker — plug-in code so you can finish your game.”  
+- CTA primary: “Browse Systems” (secondary: “See Demo”)  
+- Demo page note: “This is a public preview. I build production-ready, customizable integrations for hire.”  
+- Contact success: “Thanks — I’ve received your message. I’ll review it and get back to you.”  
+- Pricing CTA: “Prices start from $40 — get a quote.” (Use this exact phrasing where a short price line is required.)
+
+Design assets & icons:  
+- Use simple vector engine icons for Roblox, Godot, GameMaker (use free SVGs). Include a folder `assets/icons/`.  
+- Placeholder screenshots and demo GIFs stored under `assets/demos/`. Use tiny compressed GIFs for the grid; full MP4 for product pages.
+
+Security & legal:  
+- Include a placeholder privacy policy page and terms with short one-paragraph templates (owner will customize).  
+- Sanitize and validate all form inputs, and do not log passwords in plaintext.
+
+Testing & acceptance criteria (must pass all):  
+A. Visual: Site matches the structure above, responsive at 320px/768px/1200px, header and footer present site-wide.  
+B. Systems Marketplace: Filter by engine works, product pages render with demo video and code-snippet preview, Buy button links to configured external product URL.  
+C. Demo page: Roblox demo link is prominent and labeled correctly.  
+D. Contact form: Submissions are stored and a confirmation UI appears.  
+E. Email capture: Stores to local JSON and shows success message. (Optional: posts to ConvertKit if keys added).  
+F. README: Contains exact domain-connection instructions and how to change product/config entries.  
+G. Code quality: Clean, modular folder structure; comments on where to change colors/text/assets; no console errors in modern browsers.  
+H. Accessibility: images have alt text, basic keyboard navigation works.
+
+Deliverables (final):  
+- Live URL (Replit) with site.  
+- Git repo link or Replit workspace link.  
+- `memory_dump.md` summary file included in repo (use the user-provided memory dump).  
+- README plus short “what I changed” commit summary.  
+- ZIP export of the static site (for future migration).
+
+Timeline & confirmation:  
+- No timelines in the prompt itself (the Replit agent should run immediately), but it must confirm completion by listing fulfilled acceptance criteria and providing the live URL + repo link.
+
+Developer notes (do not deviate):  
+- This site is a *developer portfolio + marketplace*. Keep interface professional and avoid flashy unrelated design patterns. Prioritize clarity & speed.  
+- Protect source-code for paid assets: the demo shows behavior but does not expose full working scripts. Provide small snippet samples only.  
+- All configuration strings (product prices, links, emails) must be editable in `site/config.json` — do not hardcode addresses in many files.
+
+Quality check (final): run through acceptance criteria A–H, then publish an index page screenshot and a short changelog (3–5 bullets) in the repo root.
+
+If anything below is ambiguous to you, implement the **closest specified behavior** above and add a clear comment in the README that explains the choice so the owner can change it.
+
+Thank you — build exactly as specified and reply with:
+
+1) Live URL  
+2) Repo/workspace link  
+3) Short checklist of acceptance criteria and whether they passed  
+4) README short summary of where to change key values (config, analytics, payment links, domain)

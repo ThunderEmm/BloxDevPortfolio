@@ -1,0 +1,61 @@
+{
+  "brand": {
+    "name": "Emmet Builds Systems",
+    "tagline": "Modular systems for indie devs — plug-in code so you can finish your game.",
+    "subheadline": "Modular systems for Roblox, Godot & GameMaker — plug-in code so you can finish your game."
+  },
+  "colors": {
+    "primary": "#3B82F6",
+    "secondary": "#7C3AED",
+    "accent": "#FB923C",
+    "dark": "#1E293B",
+    "slate": "#475569"
+  },
+  "social": {
+    "github": "https://github.com/emmet-builds",
+    "itchio": "https://emmet-builds.itch.io",
+    "roblox": "https://www.roblox.com/users/123456/profile",
+    "twitter": "https://twitter.com/emmetbuilds"
+  },
+  "products": [
+    {
+      "id": "inventory-system-roblox",
+      "title": "Inventory System",
+      "engine": "roblox",
+      "price": 49,
+      "shortDescription": "Modular inventory with drag-drop, stacking, and categories",
+      "features": ["DataStore integration", "UI components included", "Drag & drop support"],
+      "tags": ["modular", "documented", "production-ready"],
+      "gumroadUrl": "https://gumroad.com/l/inventory-roblox",
+      "demoVideo": "/assets/demos/inventory-roblox.mp4"
+    },
+    {
+      "id": "quest-system-godot",
+      "title": "Quest System",
+      "engine": "godot",
+      "price": 59,
+      "shortDescription": "Complete quest framework with objectives and rewards",
+      "features": ["JSON-based quests", "Progress tracking", "Event-driven architecture"],
+      "tags": ["modular", "documented", "production-ready"],
+      "gumroadUrl": "https://gumroad.com/l/quest-godot",
+      "demoVideo": "/assets/demos/quest-godot.mp4"
+    },
+    {
+      "id": "dialogue-system-gamemaker",
+      "title": "Dialogue System",
+      "engine": "gamemaker",
+      "price": 45,
+      "shortDescription": "Branching dialogue with character portraits and choices",
+      "features": ["Choice branching", "Character system", "Localization ready"],
+      "tags": ["modular", "documented", "production-ready"],
+      "gumroadUrl": "https://gumroad.com/l/dialogue-gm",
+      "demoVideo": "/assets/demos/dialogue-gm.mp4"
+    }
+  ],
+  "analytics": {
+    "placeholder": "<!-- Replace with your Google Analytics or Plausible ID -->"
+  },
+  "emailCapture": {
+    "convertKitFormId": "<!-- Add your ConvertKit form ID here -->"
+  }
+}
