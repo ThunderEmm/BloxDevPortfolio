@@ -8,7 +8,7 @@ import { SiGodotengine, SiGamejolt } from "react-icons/si";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
-import robloxStudioIcon from "@assets/generated_images/Roblox_Studio_icon_transparent_2374af15.png";
+import robloxStudioIcon from "@assets/rblxstdicon-removebg-preview_1762631573862.png";
 import gameMakerIcon from "@assets/image_1762630380814.png";
 import inventoryImg from "@assets/generated_images/Roblox_inventory_system_34268ad7.png";
 import questImg from "@assets/generated_images/Godot_quest_system_474d9190.png";
