@@ -50,7 +50,7 @@ export default function Header() {
             </Link>
             <Link
               href="/signup"
-              className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
+              className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground ml-3"
               data-testid="link-signup"
             >
               Sign Up
