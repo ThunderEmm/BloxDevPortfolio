@@ -123,7 +123,7 @@ export default function Home() {
             <Link href="/systems?engine=godot">
               <Card className="hover-elevate active-elevate-2 transition-all duration-300">
                 <CardContent className="p-6 text-center">
-                  <SiGodotengine className="h-12 w-12 mx-auto mb-4 text-secondary" />
+                  <SiGodotengine className="h-12 w-12 mx-auto mb-4" style={{ color: '#478cbf' }} />
                   <h3 className="font-semibold mb-2">Built for Godot</h3>
                   <p className="text-sm text-muted-foreground">GDScript-ready.</p>
                 </CardContent>
