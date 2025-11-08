@@ -81,7 +81,7 @@ export default function Footer() {
             <form onSubmit={handleNewsletterSubmit} className="space-y-2">
               <Input
                 type="email"
-                placeholder="your@email.com"
+                placeholder="johndoe@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required

@@ -210,7 +210,7 @@ export default function Home() {
           <form onSubmit={handleEmailCapture} className="flex gap-3">
             <Input
               type="email"
-              placeholder="your@email.com"
+              placeholder="johndoe@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
