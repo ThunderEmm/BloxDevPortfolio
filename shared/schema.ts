@@ -39,7 +39,19 @@ export const testimonialSchema = z.object({
   rating: z.number().min(1).max(5),
 });
 
+export const userSchema = z.object({
+  id: z.number(),
+  googleId: z.string(),
+  email: z.string().email(),
+  displayName: z.string(),
+  avatarUrl: z.string().optional(),
+  termsAcceptedAt: z.string().optional(),
+  privacyAcceptedAt: z.string().optional(),
+  createdAt: z.string(),
+});
+
 export type Product = z.infer<typeof productSchema>;
 export type ContactSubmission = z.infer<typeof contactSubmissionSchema>;
 export type EmailCapture = z.infer<typeof emailCaptureSchema>;
 export type Testimonial = z.infer<typeof testimonialSchema>;
+export type User = z.infer<typeof userSchema>;

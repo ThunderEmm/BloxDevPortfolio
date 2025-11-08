@@ -1,8 +1,29 @@
 import express, { type Request, Response, NextFunction } from "express";
+import session from "express-session";
+import passport from "./auth";
+import authRoutes from "./authRoutes";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
+
+// Session configuration
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "your-secret-key-change-this",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    },
+  })
+);
+
+// Passport initialization
+app.use(passport.initialize());
+app.use(passport.session());
 
 declare module 'http' {
   interface IncomingMessage {
@@ -47,6 +68,9 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // Mount auth routes
+  app.use(authRoutes);
+  
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
