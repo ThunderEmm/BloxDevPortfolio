@@ -14,29 +14,14 @@ const RobloxStudioIcon = ({ className }: { className?: string }) => (
     className={className}
     xmlns="http://www.w3.org/2000/svg"
   >
-    <rect
-      x="2"
-      y="2"
-      width="96"
-      height="96"
-      rx="12"
-      fill="#2a2a2a"
-    />
+    <circle cx="50" cy="50" r="50" fill="#000000" />
     <g transform="translate(50, 50) rotate(-25)">
-      <rect
-        x="-28"
-        y="-28"
-        width="56"
-        height="56"
-        fill="white"
-      />
-      <rect
-        x="-10"
-        y="-10"
-        width="20"
-        height="20"
-        fill="#2a2a2a"
-      />
+      <rect x="-35" y="-12" width="70" height="24" fill="white" />
+      <rect x="-35" y="-12" width="24" height="24" fill="white" />
+      <rect x="11" y="-12" width="24" height="24" fill="white" />
+      <rect x="-12" y="-35" width="24" height="70" fill="white" />
+      <rect x="-12" y="-35" width="24" height="24" fill="white" />
+      <rect x="-12" y="11" width="24" height="24" fill="white" />
     </g>
   </svg>
 );
