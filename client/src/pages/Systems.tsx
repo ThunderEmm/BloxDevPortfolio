@@ -116,9 +116,7 @@ export default function Systems() {
     <div className="py-12">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-8">
-          <h1 className="font-display font-bold text-4xl md:text-5xl mb-4" data-testid="text-page-title">
-            Systems Marketplace
-          </h1>
+          <h1 className="font-display font-bold text-4xl md:text-5xl mb-4" data-testid="text-page-title">Asset Marketplace</h1>
           <p className="text-lg text-muted-foreground mb-6">
             Production-ready, modular game systems. Prices start from $40.
           </p>
