@@ -10,9 +10,39 @@ import { Link } from "wouter";
 export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [newsletterAccepted, setNewsletterAccepted] = useState(false);
+  const [errors, setErrors] = useState<string[]>([]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const newErrors: string[] = [];
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+      newErrors.push("Passwords do not match.");
+    }
+
+    // Check if Terms of Service is accepted
+    if (!termsAccepted) {
+      newErrors.push("You must agree to the Terms of Service.");
+    }
+
+    // Check if Privacy Policy is accepted
+    if (!privacyAccepted) {
+      newErrors.push("You must agree to the Privacy Policy.");
+    }
+
+    if (newErrors.length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    // Clear errors and proceed with form submission
+    setErrors([]);
     // Form submission logic will go here when backend is ready
   };
 
@@ -69,6 +99,8 @@ export default function SignUp() {
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
                   required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   data-testid="input-password"
                 />
                 <Button
@@ -96,6 +128,8 @@ export default function SignUp() {
                   type={showConfirmPassword ? "text" : "password"}
                   placeholder="••••••••"
                   required
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   data-testid="input-confirm-password"
                 />
                 <Button
@@ -117,7 +151,12 @@ export default function SignUp() {
 
             <div className="space-y-3">
               <div className="flex items-start gap-2">
-                <Checkbox id="terms" data-testid="checkbox-terms" />
+                <Checkbox 
+                  id="terms" 
+                  checked={termsAccepted}
+                  onCheckedChange={(checked) => setTermsAccepted(checked === true)}
+                  data-testid="checkbox-terms" 
+                />
                 <label
                   htmlFor="terms"
                   className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -130,7 +169,12 @@ export default function SignUp() {
               </div>
 
               <div className="flex items-start gap-2">
-                <Checkbox id="privacy" data-testid="checkbox-privacy" />
+                <Checkbox 
+                  id="privacy" 
+                  checked={privacyAccepted}
+                  onCheckedChange={(checked) => setPrivacyAccepted(checked === true)}
+                  data-testid="checkbox-privacy" 
+                />
                 <label
                   htmlFor="privacy"
                   className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -143,7 +187,12 @@ export default function SignUp() {
               </div>
 
               <div className="flex items-start gap-2">
-                <Checkbox id="newsletter" data-testid="checkbox-newsletter" />
+                <Checkbox 
+                  id="newsletter" 
+                  checked={newsletterAccepted}
+                  onCheckedChange={(checked) => setNewsletterAccepted(checked === true)}
+                  data-testid="checkbox-newsletter" 
+                />
                 <label
                   htmlFor="newsletter"
                   className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -152,6 +201,16 @@ export default function SignUp() {
                 </label>
               </div>
             </div>
+
+            {errors.length > 0 && (
+              <div className="bg-destructive/10 border border-destructive/30 rounded-md p-3 space-y-1" data-testid="error-container">
+                {errors.map((error, index) => (
+                  <p key={index} className="text-sm text-destructive" data-testid={`error-message-${index}`}>
+                    {error}
+                  </p>
+                ))}
+              </div>
+            )}
 
             <Button type="submit" className="w-full" data-testid="button-signup-submit">
               Create Account
