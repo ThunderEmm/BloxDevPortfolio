@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Eye, EyeOff } from "lucide-react";
 import { Link } from "wouter";
@@ -111,6 +112,44 @@ export default function SignUp() {
                     <Eye className="h-4 w-4 text-muted-foreground" />
                   )}
                 </Button>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-start gap-2">
+                <Checkbox id="terms" data-testid="checkbox-terms" />
+                <label
+                  htmlFor="terms"
+                  className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  I have read and agree to the{" "}
+                  <Link href="/terms" className="text-primary hover:underline" data-testid="link-terms">
+                    Terms of Service.
+                  </Link>
+                </label>
+              </div>
+
+              <div className="flex items-start gap-2">
+                <Checkbox id="privacy" data-testid="checkbox-privacy" />
+                <label
+                  htmlFor="privacy"
+                  className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  I have read and agree to the{" "}
+                  <Link href="/privacy" className="text-primary hover:underline" data-testid="link-privacy">
+                    Privacy Policy.
+                  </Link>
+                </label>
+              </div>
+
+              <div className="flex items-start gap-2">
+                <Checkbox id="newsletter" data-testid="checkbox-newsletter" />
+                <label
+                  htmlFor="newsletter"
+                  className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  I would like to sign up to receive additional email updates and deals.
+                </label>
               </div>
             </div>
 
