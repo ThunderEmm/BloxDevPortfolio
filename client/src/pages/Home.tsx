@@ -3,10 +3,43 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Code, Zap, FileCode, Star, Gamepad2 } from "lucide-react";
+import { ArrowRight, Code, Zap, FileCode, Star } from "lucide-react";
 import { SiGodotengine, SiGamejolt } from "react-icons/si";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+
+const RobloxStudioIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 100 100"
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      x="2"
+      y="2"
+      width="96"
+      height="96"
+      rx="12"
+      fill="#2a2a2a"
+    />
+    <g transform="translate(50, 50) rotate(-25)">
+      <rect
+        x="-28"
+        y="-28"
+        width="56"
+        height="56"
+        fill="white"
+      />
+      <rect
+        x="-10"
+        y="-10"
+        width="20"
+        height="20"
+        fill="#2a2a2a"
+      />
+    </g>
+  </svg>
+);
 
 import inventoryImg from "@assets/generated_images/Roblox_inventory_system_34268ad7.png";
 import questImg from "@assets/generated_images/Godot_quest_system_474d9190.png";
@@ -113,7 +146,7 @@ export default function Home() {
             <Link href="/systems?engine=roblox">
               <Card className="hover-elevate active-elevate-2 transition-all duration-300">
                 <CardContent className="p-6 text-center">
-                  <Gamepad2 className="h-12 w-12 mx-auto mb-4 text-primary" />
+                  <RobloxStudioIcon className="h-12 w-12 mx-auto mb-4" />
                   <h3 className="font-semibold mb-2">Built for Roblox</h3>
                   <p className="text-sm text-muted-foreground">Luau-ready.</p>
                 </CardContent>
