@@ -8,24 +8,7 @@ import { SiGodotengine, SiGamejolt } from "react-icons/si";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
-const RobloxStudioIcon = ({ className }: { className?: string }) => (
-  <svg
-    viewBox="0 0 100 100"
-    className={className}
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <circle cx="50" cy="50" r="50" fill="#000000" />
-    <g transform="translate(50, 50) rotate(-25)">
-      <rect x="-35" y="-12" width="70" height="24" fill="white" />
-      <rect x="-35" y="-12" width="24" height="24" fill="white" />
-      <rect x="11" y="-12" width="24" height="24" fill="white" />
-      <rect x="-12" y="-35" width="24" height="70" fill="white" />
-      <rect x="-12" y="-35" width="24" height="24" fill="white" />
-      <rect x="-12" y="11" width="24" height="24" fill="white" />
-    </g>
-  </svg>
-);
-
+import robloxStudioIcon from "@assets/rblxstdicon_1762630041424.png";
 import inventoryImg from "@assets/generated_images/Roblox_inventory_system_34268ad7.png";
 import questImg from "@assets/generated_images/Godot_quest_system_474d9190.png";
 import dialogueImg from "@assets/generated_images/Game_Maker_dialogue_system_7a170db5.png";
@@ -131,7 +114,7 @@ export default function Home() {
             <Link href="/systems?engine=roblox">
               <Card className="hover-elevate active-elevate-2 transition-all duration-300">
                 <CardContent className="p-6 text-center">
-                  <RobloxStudioIcon className="h-12 w-12 mx-auto mb-4" />
+                  <img src={robloxStudioIcon} alt="Roblox Studio" className="h-12 w-12 mx-auto mb-4" />
                   <h3 className="font-semibold mb-2">Built for Roblox</h3>
                   <p className="text-sm text-muted-foreground">Luau-ready.</p>
                 </CardContent>
