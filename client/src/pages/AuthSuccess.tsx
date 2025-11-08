@@ -28,7 +28,7 @@ export default function AuthSuccess() {
         <CardContent className="space-y-4">
           <p className="text-center text-muted-foreground">
             Thank you for creating your account. This is the text users will see when making an account. 
-            You have opted {optedIn ? "in" : "out"} of additional email updates and deals.
+            You have opted {optedIn ? "in to" : "out of"} additional email updates and deals.
           </p>
           <p className="text-center text-sm text-muted-foreground">
             Redirecting to homepage in 3 seconds...
