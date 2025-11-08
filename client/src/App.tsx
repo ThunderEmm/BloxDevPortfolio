@@ -16,6 +16,7 @@ import Reviews from "@/pages/Reviews";
 import Terms from "@/pages/Terms";
 import Privacy from "@/pages/Privacy";
 import SignUp from "@/pages/SignUp";
+import AuthSuccess from "@/pages/AuthSuccess";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -32,6 +33,7 @@ function Router() {
       <Route path="/terms" component={Terms} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/signup" component={SignUp} />
+      <Route path="/authsuccess" component={AuthSuccess} />
       <Route component={NotFound} />
     </Switch>
   );

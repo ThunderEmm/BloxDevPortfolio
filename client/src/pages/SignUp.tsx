@@ -5,9 +5,10 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Eye, EyeOff } from "lucide-react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 
 export default function SignUp() {
+  const [, setLocation] = useLocation();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [password, setPassword] = useState("");
@@ -38,10 +39,10 @@ export default function SignUp() {
       return;
     }
 
-    // Clear errors and proceed with form submission
+    // Clear errors and redirect to success page
     setCurrentError(null);
     setHasSubmitted(false);
-    // Form submission logic will go here when backend is ready
+    setLocation(`/authsuccess?newsletter=${newsletterAccepted}`);
   };
 
   return (
@@ -174,7 +175,7 @@ export default function SignUp() {
                   <Checkbox 
                     id="terms" 
                     checked={termsAccepted}
-                    onCheckedChange={(checked) => setTermsAccepted(checked === true)}
+                    onCheckedChange={(checked: boolean) => setTermsAccepted(checked === true)}
                     data-testid="checkbox-terms" 
                   />
                   <label
@@ -200,7 +201,7 @@ export default function SignUp() {
                   <Checkbox 
                     id="privacy" 
                     checked={privacyAccepted}
-                    onCheckedChange={(checked) => setPrivacyAccepted(checked === true)}
+                    onCheckedChange={(checked: boolean) => setPrivacyAccepted(checked === true)}
                     data-testid="checkbox-privacy" 
                   />
                   <label
@@ -225,7 +226,7 @@ export default function SignUp() {
                 <Checkbox 
                   id="newsletter" 
                   checked={newsletterAccepted}
-                  onCheckedChange={(checked) => setNewsletterAccepted(checked === true)}
+                  onCheckedChange={(checked: boolean) => setNewsletterAccepted(checked === true)}
                   data-testid="checkbox-newsletter" 
                 />
                 <label
