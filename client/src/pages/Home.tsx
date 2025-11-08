@@ -115,7 +115,7 @@ export default function Home() {
             <Link href="/systems?engine=roblox">
               <Card className="hover-elevate active-elevate-2 transition-all duration-300">
                 <CardContent className="p-6 text-center">
-                  <img src={robloxStudioIcon} alt="Roblox Studio" className="h-12 w-12 mx-auto mb-4" style={{ mixBlendMode: 'multiply' }} />
+                  <img src={robloxStudioIcon} alt="Roblox Studio" className="h-12 w-12 mx-auto mb-4 rounded-md" />
                   <h3 className="font-semibold mb-2">Built for Roblox</h3>
                   <p className="text-sm text-muted-foreground">Luau-ready.</p>
                 </CardContent>
