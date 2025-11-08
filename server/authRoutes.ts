@@ -1,6 +1,7 @@
 import { Router } from "express";
 import passport from "./auth";
 import { storage } from "./storage";
+import { verifyCsrfToken } from "./csrf";
 import type { User } from "@shared/schema";
 
 const router = Router();
@@ -46,7 +47,7 @@ router.get(
 );
 
 // Submit consent
-router.post("/auth/consent", async (req, res) => {
+router.post("/auth/consent", verifyCsrfToken, async (req, res) => {
   if (!req.isAuthenticated()) {
     return res.status(401).json({ error: "Not authenticated" });
   }
@@ -79,7 +80,7 @@ router.get("/api/user", (req, res) => {
 });
 
 // Logout
-router.post("/auth/logout", (req, res) => {
+router.post("/auth/logout", verifyCsrfToken, (req, res) => {
   req.logout((err) => {
     if (err) {
       return res.status(500).json({ error: "Logout failed" });

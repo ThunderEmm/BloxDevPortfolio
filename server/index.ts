@@ -2,6 +2,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import session from "express-session";
 import passport from "./auth";
 import authRoutes from "./authRoutes";
+import { csrfTokenMiddleware, getCsrfToken } from "./csrf";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
@@ -16,6 +17,7 @@ app.use(
     cookie: {
       secure: process.env.NODE_ENV === "production",
       httpOnly: true,
+      sameSite: "lax", // CSRF protection while allowing OAuth callbacks
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
     },
   })
@@ -24,6 +26,12 @@ app.use(
 // Passport initialization
 app.use(passport.initialize());
 app.use(passport.session());
+
+// CSRF token middleware
+app.use(csrfTokenMiddleware);
+
+// CSRF token endpoint
+app.get("/api/csrf-token", getCsrfToken);
 
 declare module 'http' {
   interface IncomingMessage {
