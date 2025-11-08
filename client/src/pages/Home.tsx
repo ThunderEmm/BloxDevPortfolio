@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 import robloxStudioIcon from "@assets/rblxstdicon_1762630041424.png";
+import gameMakerIcon from "@assets/image_1762630380814.png";
 import inventoryImg from "@assets/generated_images/Roblox_inventory_system_34268ad7.png";
 import questImg from "@assets/generated_images/Godot_quest_system_474d9190.png";
 import dialogueImg from "@assets/generated_images/Game_Maker_dialogue_system_7a170db5.png";
@@ -132,7 +133,7 @@ export default function Home() {
             <Link href="/systems?engine=gamemaker">
               <Card className="hover-elevate active-elevate-2 transition-all duration-300">
                 <CardContent className="p-6 text-center">
-                  <SiGamejolt className="h-12 w-12 mx-auto mb-4 text-accent" />
+                  <img src={gameMakerIcon} alt="GameMaker Studio" className="h-12 w-12 mx-auto mb-4" />
                   <h3 className="font-semibold mb-2">Built for GameMaker</h3>
                   <p className="text-sm text-muted-foreground">GML-ready.</p>
                 </CardContent>
