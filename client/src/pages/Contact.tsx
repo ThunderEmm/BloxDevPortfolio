@@ -127,7 +127,7 @@ export default function Contact() {
                       <Label htmlFor="name">Name</Label>
                       <Input
                         id="name"
-                        placeholder="Your name"
+                        placeholder="John Doe"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         required
