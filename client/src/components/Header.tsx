@@ -48,6 +48,19 @@ export default function Header() {
             <Link href="/systems">
               <Button data-testid="button-browse">Browse Systems</Button>
             </Link>
+            <Link
+              href="/signup"
+              className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
+              data-testid="link-signup"
+            >
+              Sign Up
+            </Link>
+            <Button 
+              className="bg-green-600 text-white hover:bg-green-700"
+              data-testid="button-login"
+            >
+              Log In
+            </Button>
           </div>
 
           <Button
