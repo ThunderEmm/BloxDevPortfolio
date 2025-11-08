@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -8,6 +9,12 @@ export default function Consent() {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Fetch CSRF token
+  const { data: csrfData } = useQuery<{ csrfToken: string }>({
+    queryKey: ["/api/csrf-token"],
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,17 +24,34 @@ export default function Consent() {
       return;
     }
 
-    // Submit consent to backend
-    const response = await fetch("/auth/consent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ termsAccepted, privacyAccepted }),
-    });
+    if (!csrfData?.csrfToken) {
+      setError("Security token not available. Please refresh the page.");
+      return;
+    }
 
-    if (response.ok) {
-      window.location.href = "/";
-    } else {
-      setError("Failed to save consent. Please try again.");
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      // Submit consent to backend with CSRF token
+      const response = await fetch("/auth/consent", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": csrfData.csrfToken,
+        },
+        body: JSON.stringify({ termsAccepted, privacyAccepted }),
+      });
+
+      if (response.ok) {
+        window.location.href = "/";
+      } else {
+        setError("Failed to save consent. Please try again.");
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -90,8 +114,13 @@ export default function Consent() {
               </p>
             )}
 
-            <Button type="submit" className="w-full" data-testid="button-consent-submit">
-              Accept & Continue
+            <Button 
+              type="submit" 
+              className="w-full" 
+              disabled={isSubmitting || !csrfData?.csrfToken}
+              data-testid="button-consent-submit"
+            >
+              {isSubmitting ? "Processing..." : "Accept & Continue"}
             </Button>
           </form>
         </CardContent>
