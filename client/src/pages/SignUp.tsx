@@ -15,34 +15,32 @@ export default function SignUp() {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [newsletterAccepted, setNewsletterAccepted] = useState(false);
-  const [errors, setErrors] = useState<string[]>([]);
+  const [currentError, setCurrentError] = useState<{ field: string; message: string } | null>(null);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const newErrors: string[] = [];
+    setHasSubmitted(true);
 
-    // Check if passwords match
+    // Validate in order from top to bottom - show only first error
     if (password !== confirmPassword) {
-      newErrors.push("Passwords do not match.");
+      setCurrentError({ field: "password", message: "Passwords do not match." });
+      return;
     }
 
-    // Check if Terms of Service is accepted
     if (!termsAccepted) {
-      newErrors.push("You must agree to the Terms of Service.");
+      setCurrentError({ field: "terms", message: "You must agree to the Terms of Service." });
+      return;
     }
 
-    // Check if Privacy Policy is accepted
     if (!privacyAccepted) {
-      newErrors.push("You must agree to the Privacy Policy.");
-    }
-
-    if (newErrors.length > 0) {
-      setErrors(newErrors);
+      setCurrentError({ field: "privacy", message: "You must agree to the Privacy Policy." });
       return;
     }
 
     // Clear errors and proceed with form submission
-    setErrors([]);
+    setCurrentError(null);
+    setHasSubmitted(false);
     // Form submission logic will go here when backend is ready
   };
 
@@ -54,12 +52,16 @@ export default function SignUp() {
           <CardDescription>
             Enter your details below to create your account
           </CardDescription>
+          <p className="text-sm text-destructive pt-2">* Indicates Required.</p>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="firstName">First Name</Label>
+                <Label htmlFor="firstName">
+                  {hasSubmitted && currentError && <span className="text-destructive">* </span>}
+                  First Name
+                </Label>
                 <Input
                   id="firstName"
                   type="text"
@@ -69,7 +71,10 @@ export default function SignUp() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="lastName">Last Name</Label>
+                <Label htmlFor="lastName">
+                  {hasSubmitted && currentError && <span className="text-destructive">* </span>}
+                  Last Name
+                </Label>
                 <Input
                   id="lastName"
                   type="text"
@@ -81,7 +86,10 @@ export default function SignUp() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">
+                {hasSubmitted && currentError && <span className="text-destructive">* </span>}
+                Email
+              </Label>
               <Input
                 id="email"
                 type="email"
@@ -92,7 +100,10 @@ export default function SignUp() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">
+                {hasSubmitted && currentError && <span className="text-destructive">* </span>}
+                Password
+              </Label>
               <div className="relative">
                 <Input
                   id="password"
@@ -121,7 +132,10 @@ export default function SignUp() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Label htmlFor="confirmPassword">
+                {hasSubmitted && currentError && <span className="text-destructive">* </span>}
+                Confirm Password
+              </Label>
               <div className="relative">
                 <Input
                   id="confirmPassword"
@@ -147,43 +161,64 @@ export default function SignUp() {
                   )}
                 </Button>
               </div>
+              {currentError?.field === "password" && (
+                <p className="text-sm text-destructive" data-testid="error-password">
+                  {currentError.message}
+                </p>
+              )}
             </div>
 
             <div className="space-y-3">
-              <div className="flex items-start gap-2">
-                <Checkbox 
-                  id="terms" 
-                  checked={termsAccepted}
-                  onCheckedChange={(checked) => setTermsAccepted(checked === true)}
-                  data-testid="checkbox-terms" 
-                />
-                <label
-                  htmlFor="terms"
-                  className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
-                  I have read and agree to the{" "}
-                  <Link href="/terms" className="text-primary hover:underline" data-testid="link-terms">
-                    Terms of Service.
-                  </Link>
-                </label>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2">
+                  <Checkbox 
+                    id="terms" 
+                    checked={termsAccepted}
+                    onCheckedChange={(checked) => setTermsAccepted(checked === true)}
+                    data-testid="checkbox-terms" 
+                  />
+                  <label
+                    htmlFor="terms"
+                    className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    {hasSubmitted && currentError && <span className="text-destructive">* </span>}
+                    I have read and agree to the{" "}
+                    <Link href="/terms" className="text-primary hover:underline" data-testid="link-terms">
+                      Terms of Service.
+                    </Link>
+                  </label>
+                </div>
+                {currentError?.field === "terms" && (
+                  <p className="text-sm text-destructive ml-6" data-testid="error-terms">
+                    {currentError.message}
+                  </p>
+                )}
               </div>
 
-              <div className="flex items-start gap-2">
-                <Checkbox 
-                  id="privacy" 
-                  checked={privacyAccepted}
-                  onCheckedChange={(checked) => setPrivacyAccepted(checked === true)}
-                  data-testid="checkbox-privacy" 
-                />
-                <label
-                  htmlFor="privacy"
-                  className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
-                  I have read and agree to the{" "}
-                  <Link href="/privacy" className="text-primary hover:underline" data-testid="link-privacy">
-                    Privacy Policy.
-                  </Link>
-                </label>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2">
+                  <Checkbox 
+                    id="privacy" 
+                    checked={privacyAccepted}
+                    onCheckedChange={(checked) => setPrivacyAccepted(checked === true)}
+                    data-testid="checkbox-privacy" 
+                  />
+                  <label
+                    htmlFor="privacy"
+                    className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    {hasSubmitted && currentError && <span className="text-destructive">* </span>}
+                    I have read and agree to the{" "}
+                    <Link href="/privacy" className="text-primary hover:underline" data-testid="link-privacy">
+                      Privacy Policy.
+                    </Link>
+                  </label>
+                </div>
+                {currentError?.field === "privacy" && (
+                  <p className="text-sm text-destructive ml-6" data-testid="error-privacy">
+                    {currentError.message}
+                  </p>
+                )}
               </div>
 
               <div className="flex items-start gap-2">
@@ -201,16 +236,6 @@ export default function SignUp() {
                 </label>
               </div>
             </div>
-
-            {errors.length > 0 && (
-              <div className="bg-destructive/10 border border-destructive/30 rounded-md p-3 space-y-1" data-testid="error-container">
-                {errors.map((error, index) => (
-                  <p key={index} className="text-sm text-destructive" data-testid={`error-message-${index}`}>
-                    {error}
-                  </p>
-                ))}
-              </div>
-            )}
 
             <Button type="submit" className="w-full" data-testid="button-signup-submit">
               Create Account
