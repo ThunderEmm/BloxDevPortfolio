@@ -52,7 +52,37 @@ Preferred communication style: Simple, everyday language.
 
 ### Authentication and Authorization
 
-Not currently implemented. The application is a public-facing e-commerce site without user authentication requirements. Form submissions are open endpoints with validation only. Future consideration may include admin panel for content management.
+**Status: Fully Implemented but Temporarily Disabled**
+
+A complete Google OAuth authentication system with post-authentication consent flow has been implemented but is currently disabled in the UI. The system remains fully functional in the codebase for future activation.
+
+**Implemented Features:**
+- Google OAuth 2.0 integration using Passport.js strategy
+- Post-authentication consent page requiring users to accept Terms of Service and Privacy Policy
+- CSRF protection for all state-changing requests (sameSite="lax" cookies + synchronizer tokens)
+- Session management via express-session with secure, httpOnly cookies
+- User profile management with Google account data (email, display name, avatar)
+- Secure logout functionality with CSRF validation
+
+**Technical Implementation:**
+- Backend: `server/auth.ts` (Passport config), `server/authRoutes.ts` (OAuth routes), `server/csrf.ts` (CSRF protection)
+- Frontend: `client/src/pages/Login.tsx` (redirects to Google), `client/src/pages/Consent.tsx` (consent form)
+- Database Schema: User model with Google ID, consent timestamps, and profile data
+- Storage: Currently uses in-memory storage (MemStorage); ready for database integration
+
+**Current State:**
+- All auth code is preserved and commented out in `client/src/components/Header.tsx`
+- Login button and user profile UI removed from header
+- Backend routes remain active and functional
+- Google OAuth credentials configured in Replit Secrets (GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET)
+
+**To Re-enable:**
+1. Uncomment auth-related imports in Header.tsx
+2. Uncomment user query and logout mutation code
+3. Uncomment auth UI section (login button and user dropdown)
+4. Optionally: Migrate from in-memory storage to database for production use
+
+The application currently operates as a public-facing e-commerce site. Form submissions are open endpoints with validation only.
 
 ### External Dependencies
 
