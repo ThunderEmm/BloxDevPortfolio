@@ -79,6 +79,21 @@ router.get("/api/user", (req, res) => {
   }
 });
 
+// Check if current user is an admin
+router.get("/api/check-admin", (req, res) => {
+  if (!req.isAuthenticated()) {
+    return res.status(401).json({ isAdmin: false, error: "Not authenticated" });
+  }
+
+  const user = req.user as User;
+  const adminEmailsEnv = process.env.ADMIN_EMAILS || "";
+  const adminEmails = adminEmailsEnv.split(',').map(email => email.trim().toLowerCase());
+  
+  const isAdmin = adminEmails.includes(user.email.toLowerCase());
+  
+  res.json({ isAdmin });
+});
+
 // Logout
 router.post("/auth/logout", verifyCsrfToken, (req, res) => {
   req.logout((err) => {
