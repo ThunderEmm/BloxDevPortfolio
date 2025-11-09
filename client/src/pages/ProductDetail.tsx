@@ -319,7 +319,7 @@ export default function ProductDetail() {
                     <h3 className="font-display font-semibold text-xl mb-2">{relatedProduct.title}</h3>
                     <p className="text-sm text-muted-foreground mb-4">{relatedProduct.shortDescription}</p>
                     <Link href={`/systems/${id}`}>
-                      <Button className="w-full">View System</Button>
+                      <Button className="w-full">View Asset</Button>
                     </Link>
                   </CardContent>
                 </Card>

@@ -165,7 +165,7 @@ export default function Home() {
                   <p className="text-muted-foreground mb-4">{system.description}</p>
                   <Link href={`/systems/${system.id}`}>
                     <Button className="w-full" data-testid={`button-view-${system.id}`}>
-                      View System
+                      View Asset
                     </Button>
                   </Link>
                 </CardContent>
