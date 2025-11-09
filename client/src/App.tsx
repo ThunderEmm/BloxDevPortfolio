@@ -17,6 +17,7 @@ import Terms from "@/pages/Terms";
 import Privacy from "@/pages/Privacy";
 import Login from "@/pages/Login";
 import Consent from "@/pages/Consent";
+import SecretDevPanel from "@/pages/SecretDevPanel";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -34,6 +35,7 @@ function Router() {
       <Route path="/privacy" component={Privacy} />
       <Route path="/login" component={Login} />
       <Route path="/consent" component={Consent} />
+      <Route path="/secretdevpanel" component={SecretDevPanel} />
       <Route component={NotFound} />
     </Switch>
   );
