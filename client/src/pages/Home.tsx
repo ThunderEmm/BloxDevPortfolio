@@ -100,7 +100,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-4 justify-center mb-16">
             <Link href="/systems">
               <Button size="lg" className="bg-accent hover:bg-accent/90" data-testid="button-browse-systems">
-                Browse Systems
+                Browse Assets
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

@@ -105,7 +105,7 @@ export default function Header() {
               <ShoppingCart className="h-5 w-5" />
             </Button>
             <Link href="/systems">
-              <Button data-testid="button-browse">Browse Systems</Button>
+              <Button data-testid="button-browse">Browse Assets</Button>
             </Link>
             
             {/* AUTH UI - COMMENTED OUT FOR FUTURE USE */}
@@ -192,7 +192,7 @@ export default function Header() {
                 </Link>
               ))}
               <Link href="/systems">
-                <Button className="w-full">Browse Systems</Button>
+                <Button className="w-full">Browse Assets</Button>
               </Link>
             </nav>
           </div>

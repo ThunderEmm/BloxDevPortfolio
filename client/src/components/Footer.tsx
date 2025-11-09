@@ -47,7 +47,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <div className="flex flex-col gap-2">
               <Link href="/systems" className="text-sm text-muted-foreground hover:text-foreground">
-                Browse Systems
+                Browse Assets
               </Link>
               <Link href="/portfolio" className="text-sm text-muted-foreground hover:text-foreground">
                 Portfolio
