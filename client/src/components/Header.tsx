@@ -1,54 +1,70 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { useQuery, useMutation } from "@tanstack/react-query";
+// import { useQuery, useMutation } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Menu, X, ShoppingCart, LogOut, User as UserIcon } from "lucide-react";
-import { apiRequest, queryClient } from "@/lib/queryClient";
-import type { User } from "@shared/schema";
+// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuLabel,
+//   DropdownMenuSeparator,
+//   DropdownMenuTrigger,
+// } from "@/components/ui/dropdown-menu";
+import { Menu, X, ShoppingCart } from "lucide-react";
+// import { apiRequest, queryClient } from "@/lib/queryClient";
+// import type { User } from "@shared/schema";
+
+/**
+ * AUTHENTICATION SYSTEM - TEMPORARILY DISABLED
+ * 
+ * The Google OAuth authentication system is fully implemented but currently disabled.
+ * All auth code is preserved below in comments for future re-enablement.
+ * 
+ * To re-enable authentication:
+ * 1. Uncomment the imports above (useQuery, useMutation, Avatar, DropdownMenu components, etc.)
+ * 2. Uncomment the user query and logout mutation code below
+ * 3. Uncomment the auth UI section (lines 95-148 in original)
+ * 4. Ensure GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET are set in Replit Secrets
+ * 
+ * Backend routes (/auth/google, /auth/consent, /auth/logout) remain active.
+ */
 
 export default function Header() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // AUTH CODE - COMMENTED OUT FOR FUTURE USE
   // Fetch current user
-  const { data: user } = useQuery<User>({
-    queryKey: ["/api/user"],
-    retry: false,
-  });
+  // const { data: user } = useQuery<User>({
+  //   queryKey: ["/api/user"],
+  //   retry: false,
+  // });
 
   // Fetch CSRF token for logout
-  const { data: csrfData } = useQuery<{ csrfToken: string }>({
-    queryKey: ["/api/csrf-token"],
-  });
+  // const { data: csrfData } = useQuery<{ csrfToken: string }>({
+  //   queryKey: ["/api/csrf-token"],
+  // });
 
   // Logout mutation
-  const logoutMutation = useMutation({
-    mutationFn: async () => {
-      if (!csrfData?.csrfToken) {
-        throw new Error("CSRF token not available");
-      }
-      
-      return apiRequest("/auth/logout", {
-        method: "POST",
-        headers: {
-          "X-CSRF-Token": csrfData.csrfToken,
-        },
-      });
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["/api/user"] });
-      window.location.href = "/";
-    },
-  });
+  // const logoutMutation = useMutation({
+  //   mutationFn: async () => {
+  //     if (!csrfData?.csrfToken) {
+  //       throw new Error("CSRF token not available");
+  //     }
+  //     
+  //     return apiRequest("/auth/logout", {
+  //       method: "POST",
+  //       headers: {
+  //         "X-CSRF-Token": csrfData.csrfToken,
+  //       },
+  //     });
+  //   },
+  //   onSuccess: () => {
+  //     queryClient.invalidateQueries({ queryKey: ["/api/user"] });
+  //     window.location.href = "/";
+  //   },
+  // });
 
   const navItems = [
     { path: "/", label: "Home" },
@@ -92,7 +108,8 @@ export default function Header() {
               <Button data-testid="button-browse">Browse Systems</Button>
             </Link>
             
-            {user ? (
+            {/* AUTH UI - COMMENTED OUT FOR FUTURE USE */}
+            {/* {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
@@ -145,7 +162,7 @@ export default function Header() {
                   Log In
                 </Button>
               </Link>
-            )}
+            )} */}
           </div>
 
           <Button
